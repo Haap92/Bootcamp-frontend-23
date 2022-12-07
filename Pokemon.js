@@ -25,33 +25,44 @@ let Pokemon = class {
         this._name = newName;
     }
 
-    set type (newType) {
-        newType = newType.trim();
+    set type (types) {
+        let newType = [];
+        newType.push(types);
         if (newType === '') {
+            throw 'The type must be an array';
+        }
+        if (newType === []) {
             throw 'The type cannot be empty';
         }
         this._type = newType;
     }
 
-    set evolutions (newEvolution) {
-        newEvolutions = newEvolutions.trim();
+    set evolutions (evolutions) {
+        let newEvolutions = [];
+        newEvolutions.push(evolutions);
         if (newEvolutions === '') {
+            throw 'The evolutions must be an array';
+        }
+        if (newEvolutions === []) {
             throw 'The evolution cannot be empty';
         }
-        this._evolution = newEvolution;
+        this._evolutions = newEvolutions;
     }
 }
 
-function attack() {
-    (console.log(this._name + ' has attacked'));
+function attack(Pokemon) {
+    return (Pokemon.name + ' has attacked');
 }
 
-function evolve() {
-    (console.log(this._name + ' has evolved to' + this._evolutions));
+function evolve(Pokemon) {
+    let firstEvolution = Pokemon.evolutions[0]
+    return (Pokemon.name + ' has evolved to ' + firstEvolution);
 }
 
 
-let Pikachu = new Pokemon ('Pikachu', 'electric', 'Raichu');
+let Pikachu = new Pokemon ('Pikachu', ['Electric', 'Ground'], ['Raichu']);
 console.log(Pikachu.name);
 console.log(Pikachu.type);
-console.log(Pikachu.evolution);
+console.log(Pikachu.evolutions);
+console.log(attack(Pikachu));
+console.log(evolve(Pikachu));
