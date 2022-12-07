@@ -42,12 +42,12 @@ let Pokemon = class {
     }
 }
 
-attack(Pokemon){
-    console.log(Pokemon.name + ' has attacked');
+function attack() {
+    (console.log(this._name + ' has attacked'));
 }
 
-evolve(Pokemon){
-    console.log(Pokemon.name + ' has evolved to' + Pokemon.evolutions);
+function evolve() {
+    (console.log(this._name + ' has evolved to' + this._evolutions));
 }
 
 
