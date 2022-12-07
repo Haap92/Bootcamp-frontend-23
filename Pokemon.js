@@ -42,6 +42,13 @@ let Pokemon = class {
     }
 }
 
+attack(Pokemon){
+    console.log(Pokemon.name + ' has attacked');
+}
+
+evolve(Pokemon){
+    console.log(Pokemon.name + ' has evolved to' + Pokemon.evolutions);
+}
 
 
 let Pikachu = new Pokemon ('Pikachu', 'electric', 'Raichu');
