@@ -55,7 +55,8 @@ function attack(Pokemon) {
 }
 
 function evolve(Pokemon) {
-    let firstEvolution = Pokemon.evolutions[0]
+    let firstEvolution = []
+    firstEvolution.push(Pokemon.evolutions[0]);
     return (Pokemon.name + ' has evolved to ' + firstEvolution);
 }
 
@@ -66,3 +67,10 @@ console.log(Pikachu.type);
 console.log(Pikachu.evolutions);
 console.log(attack(Pikachu));
 console.log(evolve(Pikachu));
+
+let Bulbasaur = new Pokemon ('Bulbasaur', ['Grass', 'Poison'], ['Ivysaur', 'Venasaur']);
+console.log(Bulbasaur.name);
+console.log(Bulbasaur.type);
+console.log(Bulbasaur.evolutions);
+console.log(attack(Bulbasaur));
+console.log(evolve(Bulbasaur));
