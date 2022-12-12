@@ -5,12 +5,24 @@ console.log(min);
 
 //Write a JS program to find the least frequent item of an array.
 let arr1=[3, 'c', 'c', 'a', 2, 3, 'c', 3,'c', 2, 4, 9, 9];
-//let leastFrequent = arr1.map((c, i) => );
+function leastFrequent(arr) {
+    let count = arr.map((it) => (it = arr.filter((x) => x === it).length));
+    let least = count.indexOf(Math.min(...count));
+    return arr[least];
+}
+console.log(leastFrequent(arr1));
 
 //Write a JS program to remove duplicates in an array.
 let arr2 = [7, 9, 1, 'a', 'a', 'f', 9 , 4,2, 'd', 'd']
-let unique = arr2.filter((c, i) => arr2.indexOf(c) === i);
-console.log(unique);
+function removeDuplicate(arr) {
+    let count = arr.map((c) => (c = arr.filter((x) => x === c).length));
+    let res = [];
+    count.map((c, index) => {
+      if (c === 1) res.push(arr[index]);
+    });
+    return res;
+  }
+  console.log(removeDuplicate(arr2));
 
 //Write a JS program to concat arrays.
 let data = [["The", "little", "horse"],
