@@ -1,7 +1,10 @@
 //Write a JS program to find the smallest number in the array.
 let arr = [12, 6, 10, 2, 45, 100];
-const min = arr.reduce((a, b) => Math.min(a, b));
-console.log(min);
+function smallest(arr){
+    const min = arr.reduce((a, b) => Math.min(a, b));
+    return min
+}
+console.log(smallest(arr));
 
 //Write a JS program to find the least frequent item of an array.
 let arr1=[3, 'c', 'c', 'a', 2, 3, 'c', 3,'c', 2, 4, 9, 9];
@@ -42,3 +45,15 @@ newData.push(data3);
 newData.push(data4);
 
 console.log(newData);
+
+let concatdata = [["The", "little", "horse"],
+    ["Plane", "over", "the", "ocean"],
+    ["Chocolate", "ice", "cream", "is", "awesome"],
+    ["this", "is", "a", "long", "sentence"]]
+
+function concat(arr) {
+  const result = arr.map((item) => item.reduce((acc, item) => `${acc} ${item}`));
+  console.log(result);
+  return result
+}
+console.log(concat(concatdata));
