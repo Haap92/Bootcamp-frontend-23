@@ -1,10 +1,4 @@
-class HttpError extends Error {
-    constructor(response) {
-    super(`${response.status} for ${response.url}`);
-    this.name = 'HttpError';
-    this.response = response;
-    }
-    }
+
     // function loadJson(url) {
     // return fetch(url)
     // .then(response => {
@@ -33,9 +27,17 @@ class HttpError extends Error {
     // }
     // demoGithubUser();
 
+    class HttpError extends Error {
+      constructor(response) {
+      super(`${response.status} for ${response.url}`);
+      this.name = 'HttpError';
+      this.response = response;
+      }
+      }
+
     async function loadJson(url) {
         const urlResponse = await fetch(url);
-        if (urlResponse.status == 200) return urlResponse.json();
+        if (urlResponse.status == 200) return await urlResponse.json();
         throw new HttpError(urlResponse);
       }
     
