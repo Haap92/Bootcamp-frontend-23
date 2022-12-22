@@ -23,9 +23,13 @@
             font-size: 22px;
             border-style: solid;
             border-color: gray;
-            border-width: medium;
-            
+            border-width: medium;            
         }
+            .tag{
+                display: flex;
+                color: purple;
+                font-size: 24px;
+            }
         .stars{
             display: flex;
             justify-content: flex-end;
