@@ -66,7 +66,7 @@ let card = document.getElementById("YugiohCard");
 
 cards.map((c) => {
   card.innerHTML += `
-  <article class="cards">
+  <article class="card">
     <div class="nameAndTag">
         <div class="name">${c.name}</div>
         <div class="tag">${c.tag}</div>
