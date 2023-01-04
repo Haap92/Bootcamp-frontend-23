@@ -125,6 +125,9 @@ footer{
     gap: 10px;
     }
         .Omains1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-style: solid;
         border-color: gray;
         border-width: medium;
@@ -141,6 +144,9 @@ footer{
     gap: 10px;
     }
         .Omains2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-style: solid;
         border-color: gray;
         border-width: medium;
@@ -302,6 +308,9 @@ footer{
     gap: 10px;
     }
         .Smains1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-style: solid;
         border-color: gray;
         border-width: medium;
@@ -318,6 +327,9 @@ footer{
     gap: 10px;
     }
         .Smains2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-style: solid;
         border-color: gray;
         border-width: medium;
@@ -327,11 +339,6 @@ footer{
         background-position: center;
         }
 
-.Smain1 .cards{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}    
     .card{
         display: inherit;
         width: 90%;
@@ -427,3 +434,41 @@ footer{
             font-size: 2px;
             overflow:hidden;  
         }
+
+@media screen and (max-width: 600px) {
+    header{
+        padding: 4%;
+    }
+        .logo{
+            height: 150%;
+        }
+            .link{
+                font-size: 100%;
+            }   
+
+    footer{
+        padding: 3%;
+    }
+    .Self{
+        grid-template-columns: 1% 88% 1%;
+    }
+    .SleftSide{
+        visibility: hidden;
+        grid-template-rows: 150px 150px 150px;
+    }
+    .SrightSide{
+        visibility: hidden;
+        grid-template-rows: 150px 150px 150px;
+    }
+    .Opponent{
+        grid-template-columns: 1% 88% 1%;
+    }
+    .OleftSide{
+        visibility: hidden;
+        grid-template-rows: 150px 150px 150px;
+    }
+    .OrightSide{
+        visibility: hidden;
+        grid-template-rows: 150px 150px 150px;
+    }
+}
