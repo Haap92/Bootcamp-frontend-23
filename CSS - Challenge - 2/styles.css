@@ -1,159 +1,429 @@
-.Opponent{
-    display: grid;
-    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-    grid-template-rows: 150px 150px 150px;
-    gap: 10px;
-    margin: 50px;
-
+body {
+    background-color: #94526E;   
 }
-    .Odeck{
+header{
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    grid-template-rows: 50px;
+    align-items: center;
+    background-image: url("public/img/texture.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 5%;
+}
+    .logo{
+        grid-column: 1;
+        align-items: flex-start;
+        height: 300%;
+    }
+    .menu{
         grid-column: 2;
-        grid-row: 1;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+    }
+        .link{
+            text-decoration: none;
+            font-size: 150%;
+            font-weight: bold;
+            color: white;
+            margin-left: 1%;
+        }
+        .link:hover{
+            color: #F1E1B3;
+        }
+footer{
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: 30px;
+    align-items: center;
+    background-image: url("public/img/texture.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 2%;
+}
+    footer .logo{
+        grid-column: 2;
+        align-items: center;
+        height: 200%;
+    }
+    .legal{
+        text-decoration: none;
+        font-size: 120%;
+        color: white;   
+    }
+.Opponent {
+  display: grid;
+  grid-template-columns: 20% 50% 20%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 50px;
+}
+.OleftSide{
+    display: grid;
+    grid-column: 1;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 240px 240px 240px;
+}
+    .Odeck { 
+    grid-column: 2;
+    grid-row: 1;
+    border-style: solid;
+    border-color: gray;
+    border-width: medium;
+    background-image: url("public/img/YGODK.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
+    .Ograveyard {
+    grid-column: 2;
+    grid-row: 3;
+    border-style: solid;
+    border-color: gray;
+    border-width: medium;
+    background-image: url("public/img/YGOGY.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    }
+    .Opendulum {
+    grid-column: 2;
+    grid-row: 2;
+    border-style: solid;
+    border-color: gray;
+    border-width: medium;
+    background-image: url("public/img/YGOP4.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    }
+    .Öbanished {
+    grid-column: 1;
+    grid-row: 3;
+    border-style: solid;
+    border-color: gray;
+    border-width: medium;
+    background-image: url("public/img/YGOBN.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    }
+.Ocenter{
+    display: grid;
+    grid-column: 2;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 240px 240px;
+}
+    .Omain1 {
+    display: grid;
+    grid-column: 1;
+    grid-row: 2;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    }
+        .Omains1 {
         border-style: solid;
         border-color: gray;
         border-width: medium;
-        background-color: blueviolet;
+        background-image: url("public/img/YGOM1.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+    .Omain2 {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
     }
-    .Ograveyard{
+        .Omains2 {
+        border-style: solid;
+        border-color: gray;
+        border-width: medium;
+        background-image: url("public/img/YGOM2.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+.OrightSide{
+    display: grid;
+    grid-column: 3;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 240px 240px 240px;
+    }
+.Oextra {
+  grid-column: 1;
+  grid-row: 1;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOET.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.Opendulum2 {
+  grid-column: 1;
+  grid-row: 2;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOP3.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.Ofield {
+  grid-column: 1;
+  grid-row: 3;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOFL.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.Self {
+    display: grid;
+    grid-template-columns: 20% 50% 20%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 50px;
+}
+    .SleftSide{
+        display: grid;
+        grid-column: 1;
+        grid-row: 1;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 240px 240px 240px;
+        }
+        .Sextra {
         grid-column: 2;
         grid-row: 3;
         border-style: solid;
         border-color: gray;
         border-width: medium;
-        background-color: blueviolet;
-    }
-    .Opendulum{
+        background-image: url("public/img/YGOET.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+        .Spendulum2 {
         grid-column: 2;
         grid-row: 2;
         border-style: solid;
         border-color: gray;
         border-width: medium;
-        background-color: blueviolet;
-    }
-    .Öbanished{
+        background-image: url("public/img/YGOP1.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+        .Sfield {
+        grid-column: 2;
+        grid-row: 1;
+        border-style: solid;
+        border-color: gray;
+        border-width: medium;
+        background-image: url("public/img/YGOFL.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+    .SrightSide{
+        display: grid;
+        grid-column: 3;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 240px 240px 240px;
+        }
+        .Sdeck {
         grid-column: 1;
         grid-row: 3;
         border-style: solid;
         border-color: gray;
         border-width: medium;
-        background-color: blueviolet;
-    }
-
-    .Omain{
-        display: grid;
-        grid-column: 3 / 8;
-        grid-row: 1 / 3;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 10px;     
-    }
-        .Omains{
-            border-style: solid;
-            border-color: gray;
-            border-width: medium;
-            background-color: blueviolet;
+        background-image: url("public/img/YGODK.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
         }
-    .Oextra{
-        grid-column: 8;
+        .Sgraveyard {
+        grid-column: 1;
         grid-row: 1;
         border-style: solid;
         border-color: gray;
         border-width: medium;
-        background-color: blueviolet;
-    }
-    .Opendulum2{
-        grid-column: 8;
+        background-image: url("public/img/YGOGY.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+        .Spendulum {
+        grid-column: 1;
         grid-row: 2;
         border-style: solid;
         border-color: gray;
         border-width: medium;
-        background-color: blueviolet;
-    }
-    .Ofield{
-        grid-column: 8;
-        grid-row: 3;
+        background-image: url("public/img/YGOP2.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+        .Sbanished {
+        grid-column: 2;
+        grid-row: 1;
         border-style: solid;
         border-color: gray;
         border-width: medium;
-        background-color: blueviolet;
-    }
-
-.Self{
+        background-image: url("public/img/YGOBN.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+.Scenter{
     display: grid;
-    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-    grid-template-rows: 150px 150px 150px;
+    grid-column: 2;
+    grid-row: 1;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 240px 240px;
+}
+    .Smain1 {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
-    margin: 50px;
-    
     }
-    .Sdeck{
-        grid-column: 8;
-        grid-row: 3;
+        .Smains1 {
         border-style: solid;
         border-color: gray;
         border-width: medium;
-        background-color: blueviolet;
+        background-image: url("public/img/YGOM1.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
         }
-    .Sgraveyard{
-        grid-column: 8;
-        grid-row: 1;
+    .Smain2 {
+    display: grid;
+    grid-column: 1;
+    grid-row: 2;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    }
+        .Smains2 {
         border-style: solid;
         border-color: gray;
         border-width: medium;
-        background-color: blueviolet;
+        background-image: url("public/img/YGOM2.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
         }
-    .Spendulum{
-        grid-column: 8;
-        grid-row: 2;
+
+.Smain1 .cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}    
+    .card{
+        display: inherit;
+        width: 90%;
+        flex-direction: column;
+        background-color: #ffbb00ad; 
+        background-size: cover;
         border-style: solid;
         border-color: gray;
-        border-width: medium;
-        background-color: blueviolet;
-        }
-    .Sbanished{
-        grid-column: 9;
-        grid-row: 1;
-        border-style: solid;
-        border-color: gray;
-        border-width: medium;
-        background-color: blueviolet;
-        }
-    
-    .Smain{
-        display: grid;
-        grid-column: 3 / 8;
-        grid-row: 2 / 4;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 10px;     
-        }
-        .Smains{
+        border-width: light;
+    }
+        .nameAndTag{
+            display: inherit;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 3%;
+            font-size: 6px;
+            background-color: #ffbb0094; 
             border-style: solid;
             border-color: gray;
-            border-width: medium;
-            background-color: blueviolet;
+            border-width: light;
+            overflow:hidden;            
+        }
+            .tag{
+                color: purple;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                line-break: anywhere;
             }
-    .Sextra{
-        grid-column: 2;
-        grid-row: 3;
-        border-style: solid;
-        border-color: gray;
-        border-width: medium;
-        background-color: blueviolet;
+        .stars{
+            display: inherit;
+            justify-content: flex-end;
+            color: #ff4000;
+            font-size: 8px;
+            overflow:hidden;  
         }
-    .Spendulum2{
-        grid-column: 2;
-        grid-row: 2;
-        border-style: solid;
-        border-color: gray;
-        border-width: medium;
-        background-color: blueviolet;
+        .image{
+            display: inherit;
+            justify-content: center;
+            align-items: center;
+            margin-top: -3px;
         }
-    .Sfield{
-        grid-column: 2;
-        grid-row: 1;
-        border-style: solid;
-        border-color: gray;
-        border-width: medium;
-        background-color: blueviolet;
+            .img{
+                width: 100%;
+                max-height: 40%;
+                border-style: 1;
+                border-color: gray;
+                overflow: hidden;
+            }
+
+        .code{
+            display: inherit;
+            justify-content: flex-end;
+            font-size: 4px;
+            overflow:hidden;  
+        }
+        .description{
+            display: inherit;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #e0cc97ad; 
+            border-style: solid;
+            border-color: gray;
+            border-width: light;
+            font-size: 4px;
+        }
+            .descriptionAndText{
+                display: inherit;
+                align-items: flex-start;
+                font-size: 4px;
+                overflow:hidden;  
+            }
+                .descriptionAndTextParragraph{
+                    display: inherit;
+                    flex-wrap: wrap;
+                    font-size: 2px;
+                    text-overflow:hidden;  
+}
+            .descriptionStats{
+                display: inherit;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: flex-end;
+                border-top: solid;
+                font-size: 4px;
+                overflow:hidden;  
+            }
+        .editionAndCopywrite{
+            display: inherit;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 2px;
+            overflow:hidden;  
         }

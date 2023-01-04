@@ -84,7 +84,7 @@ cards.map((c) => {
         </div>
     </div>
     <div class="editionAndCopywrite">
-        <p class="edtion"${c.edition}</p> 
+        <p class="edtion">${c.edition}</p> 
         <p class="copywrite">${c.copywrite}</p>
     </div>
 </article>
