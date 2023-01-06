@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <title>Login Form</title>
+</head>
+<body>
+    <form method="post">  
+        <div class="container">
+            
+            <div class="input">
+            <img class ="usericon" src="./public/img/user.png">
+            <label class="shortLabel" for="name"><b>Username</b></label>
+            <label class="longLabel" for="name"><b>Introduce your Username</b></label>
+            <input type="text" placeholder="Enter Username" name="name" required>
+            </div>
+      
+            <div class="input">
+            <img class ="keyicon" src="./public/img/key.png">
+            <label class="shortLabel" for="psw"><b>Password</b></label>
+            <label class="longLabel" for="psw"><b>Introduce your Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            </div>
+      
+            <div class="input">
+            <button class="loginButton" type="submit">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+            </div>
+        </div> 
+</body>
+</html>
