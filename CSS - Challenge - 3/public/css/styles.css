@@ -5,18 +5,18 @@
 }
 
 .input {
-    display: inherit;
+    display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
 .usericon {
-    display: inherit;
+    display: flex;
     width: 2%;
 }
 
 .keyicon {
-    display: inherit;
+    display: flex;
     width: 2%;
 }
 
