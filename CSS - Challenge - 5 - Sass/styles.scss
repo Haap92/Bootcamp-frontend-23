@@ -1,44 +1,44 @@
-@bgcolor:#94526E;
-@cardBgColor: #ffbb0094;
-@tag: purple;
-@stars: #ff4000;
-@heightDesktop: 20%;
+$bgcolor:#94526E;
+$cardBgColor: #ffbb0094;
+$tag: purple;
+$stars: #ff4000;
+$heightDesktop: 20%;
 body {
-    background-color: @bgcolor;   
+    background-color: $bgcolor;   
 }
-.center{
+@mixin center{
     justify-content: center;
     align-items: center;
 }
-.boardSpecs{
+@mixin boardSpecs{
     grid-template-columns: 20% 50% 20%;
-    .center;
+    @include center;
     gap: 1%;
     margin: 5%;
 }
-.mainDistribution{
+@mixin mainDistribution{
     grid-template-columns: repeat(5, 1fr);
     aspect-ratio: 4;
     gap: 1%;
 }
-.rows3Desktop{
+@mixin rows3Desktop{
     grid-template-rows: 1fr 1fr 1fr;
     aspect-ratio: 1/2;
 }
-.rows2Desktop{
+@mixin rows2Desktop{
     grid-template-rows: 1fr 1fr;
 }
-.bgImages{
+@mixin bgImages{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
-.gridBorder{
+@mixin gridBorder{
     border-style: solid;
     border-color: gray;
     border-width: medium;
 }
-.cardBorder{
+@mixin cardBorder{
     border-style: solid;
     border-color: gray;
     border-width: light;
@@ -48,9 +48,9 @@ header{
     grid-template-columns: repeat(2, 48%);
     grid-template-rows: 1fr;
     
-    .center;
+    @include center;
     background-image: url("public/img/texture.png");
-    .bgImages;
+    @include bgImages;
     padding: 1%;
     .logo{
         grid-column: 1;
@@ -81,7 +81,7 @@ footer{
     grid-template-rows: 1fr;
     align-items: center;
     background-image: url("public/img/texture.png");
-    .bgImages;
+    @include bgImages;
     padding: 2%;
     .logo{
         grid-column: 2;
@@ -98,70 +98,70 @@ footer{
 
 .Opponent {
   display: grid;
-  .boardSpecs;
+  @include boardSpecs;
   .OleftSide{
     display: grid;
     grid-column: 1;
     grid-row: 1;
     grid-template-columns: repeat(2, 1fr);
-    .rows3Desktop;
+    @include rows3Desktop;
     .Odeck { 
         grid-column: 2;
         grid-row: 1;
-        .gridBorder;
+        @include gridBorder;
         background-image: url("public/img/YGODK.webp");
-        .bgImages;
+        @include bgImages;
         }
         .Ograveyard {
         grid-column: 2;
         grid-row: 3;
-        .gridBorder;
+        @include gridBorder;
         background-image: url("public/img/YGOGY.webp");
-        .bgImages;
+        @include bgImages;
         }
         .Opendulum {
         grid-column: 2;
         grid-row: 2;
-        .gridBorder;
+        @include gridBorder;
         background-image: url("public/img/YGOP4.webp");
-        .bgImages;
+        @include bgImages;
         }
         .Öbanished {
         grid-column: 1;
         grid-row: 3;
-        .gridBorder;
+        @include gridBorder;
         background-image: url("public/img/YGOBN.webp");
-        .bgImages;
+        @include bgImages;
         }
     }   
     .Ocenter{
     display: grid;
     grid-column: 2;
-    .rows2Desktop;
+    @include rows2Desktop;
         .Omain1 {
             display: grid;
             grid-column: 1;
             grid-row: 2;
-            .mainDistribution;
+            @include mainDistribution;
             .Omains1 {
                 display: flex;
-                .center;
-                .gridBorder;
+                @include center;
+                @include gridBorder;
                 background-image: url("public/img/YGOM1.webp");
-                .bgImages;
+                @include bgImages;
             }       
         }
         .Omain2 {
         display: grid;
         grid-column: 1;
         grid-row: 1;
-        .mainDistribution;
+        @include mainDistribution;
             .Omains2 {
                 display: flex;
-                .center;
-                .gridBorder;
+                @include center;
+                @include gridBorder;
                 background-image: url("public/img/YGOM2.webp");
-                .bgImages;
+                @include bgImages;
             }
         }           
     }
@@ -169,27 +169,27 @@ footer{
     display: grid;
     grid-column: 3;
     grid-template-columns: repeat(2, 1fr);
-    .rows3Desktop;
+    @include rows3Desktop;
         .Oextra {
             grid-column: 1;
             grid-row: 1;
-            .gridBorder;
+            @include gridBorder;
             background-image: url("public/img/YGOET.webp");
-            .bgImages;
+            @include bgImages;
         }
         .Opendulum2 {
             grid-column: 1;
             grid-row: 2;
-            .gridBorder;
+            @include gridBorder;
             background-image: url("public/img/YGOP3.webp");
-            .bgImages;
+            @include bgImages;
         }
         .Ofield {
             grid-column: 1;
             grid-row: 3;
-            .gridBorder;
+            @include gridBorder;
             background-image: url("public/img/YGOFL.webp");
-            .bgImages;
+            @include bgImages;
         }
     }
 }
@@ -197,33 +197,33 @@ footer{
 
 .Self {
     display: grid;
-    .boardSpecs;
+    @include boardSpecs;
     .SleftSide{
         display: grid;
         grid-column: 1;
         grid-row: 1;
         grid-template-columns: repeat(2, 1fr);
-        .rows3Desktop;
+        @include rows3Desktop;
         .Sextra {
             grid-column: 2;
             grid-row: 3;
-            .gridBorder;
+            @include gridBorder;
             background-image: url("public/img/YGOET.webp");
-            .bgImages;
+            @include bgImages;
             }
             .Spendulum2 {
             grid-column: 2;
             grid-row: 2;
-            .gridBorder;
+            @include gridBorder;
             background-image: url("public/img/YGOP1.webp");
-            .bgImages;
+            @include bgImages;
             }
             .Sfield {
             grid-column: 2;
             grid-row: 1;
-            .gridBorder;
+            @include gridBorder;
             background-image: url("public/img/YGOFL.webp");
-            .bgImages;
+            @include bgImages;
             }
         }
         
@@ -231,34 +231,34 @@ footer{
         display: grid;
         grid-column: 3;
         grid-template-columns: repeat(2, 1fr);
-        .rows3Desktop;
+        @include rows3Desktop;
         .Sdeck {
             grid-column: 1;
             grid-row: 3;
-            .gridBorder;
+            @include gridBorder;
             background-image: url("public/img/YGODK.webp");
-            .bgImages;
+            @include bgImages;
         }
         .Sgraveyard {
             grid-column: 1;
             grid-row: 1;
-            .gridBorder;
+            @include gridBorder;
             background-image: url("public/img/YGOGY.webp");
-            .bgImages;
+            @include bgImages;
         }
         .Spendulum {
             grid-column: 1;
             grid-row: 2;
-            .gridBorder;
+            @include gridBorder;
             background-image: url("public/img/YGOP2.webp");
-            .bgImages;
+            @include bgImages;
         }
         .Sbanished {
             grid-column: 2;
             grid-row: 1;
-            .gridBorder;
+            @include gridBorder;
             background-image: url("public/img/YGOBN.webp");
-            .bgImages;
+            @include bgImages;
         }
     }     
     .Scenter{
@@ -266,31 +266,31 @@ footer{
         grid-column: 2;
         grid-row: 1;
         grid-template-columns: repeat(1, 1fr);
-        .rows2Desktop;
+        @include rows2Desktop;
         .Smain1 {
             display: grid;
             grid-column: 1;
             grid-row: 1;
-            .mainDistribution;
+            @include mainDistribution;
             .Smains1 {
                 display: flex;
-                .center;
-                .gridBorder;
+                @include center;
+                @include gridBorder;
                 background-image: url("public/img/YGOM1.webp");
-                .bgImages;
+                @include bgImages;
             }
         }
             .Smain2 {
             display: grid;
             grid-column: 1;
             grid-row: 2;
-            .mainDistribution;
+            @include mainDistribution;
             .Smains2 {
                 display: flex;
-                .center;
-                .gridBorder;
+                @include center;
+                @include gridBorder;
                 background-image: url("public/img/YGOM2.webp");
-                .bgImages;
+                @include bgImages;
             }
         
         }
@@ -301,28 +301,28 @@ footer{
         
     .card{
         display: flex;
-        width: 100%;
-        max-height: 15vh;
+        width: 80%;
+        max-height: 12vh;
         flex-direction: column;
         background-color: #ffbb00ad; 
         background-size: cover;
-        .cardBorder;
+        @include cardBorder;
         .nameAndTag{
             display: inherit;
             flex-direction: row;
             justify-content: space-between;
             padding: 1%;
             font-size: 3%;
-            background-color: @cardBgColor; 
-            .cardBorder;           
+            background-color: $cardBgColor; 
+            @include cardBorder;           
             .tag{
-                color: @tag;
+                color: $tag;
             }
         }
         .stars{
             display: inherit;
             justify-content: flex-end;
-            color: @stars;
+            color: $stars;
             font-size: 3%;
             overflow:hidden;  
         }
@@ -333,7 +333,7 @@ footer{
             .img{
                 width: 70%;
                 max-height: 5vh;
-                .cardBorder;
+                @include cardBorder;
                 overflow: hidden;
             }
         }
@@ -348,7 +348,7 @@ footer{
             flex-direction: column;
             justify-content: space-between;
             background-color: #e0cc97ad; 
-            .cardBorder;
+            @include cardBorder;
             font-size: 2%;
             .descriptionAndText{
                 align-items: flex-start;
@@ -414,7 +414,7 @@ footer{
         visibility: hidden;
     }
     .card{
-        max-height: 24vh;
+        max-height: 17vh;
         .image{
             .img{
                 max-height: 10vh;

@@ -1,0 +1,483 @@
+@charset "UTF-8";
+body {
+  background-color: #94526E;
+}
+
+header {
+  display: grid;
+  grid-template-columns: repeat(2, 48%);
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  background-image: url("public/img/texture.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1%;
+}
+header .logo {
+  grid-column: 1;
+  align-items: flex-start;
+  height: 100%;
+  max-height: 20vh;
+}
+header .menu {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+header .link {
+  text-decoration: none;
+  font-size: 150%;
+  font-weight: bold;
+  color: white;
+  margin-left: 1%;
+}
+header .link:hover {
+  color: #F1E1B3;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(3, 30%);
+  grid-template-rows: 1fr;
+  align-items: center;
+  background-image: url("public/img/texture.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2%;
+}
+footer .logo {
+  grid-column: 2;
+  align-items: center;
+  height: 100%;
+  max-height: 8vh;
+}
+footer .legal {
+  text-decoration: none;
+  font-size: 120%;
+  color: white;
+}
+
+.Opponent {
+  display: grid;
+  grid-template-columns: 20% 50% 20%;
+  justify-content: center;
+  align-items: center;
+  gap: 1%;
+  margin: 5%;
+}
+.Opponent .OleftSide {
+  display: grid;
+  grid-column: 1;
+  grid-row: 1;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  aspect-ratio: 1/2;
+}
+.Opponent .OleftSide .Odeck {
+  grid-column: 2;
+  grid-row: 1;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGODK.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Opponent .OleftSide .Ograveyard {
+  grid-column: 2;
+  grid-row: 3;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOGY.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Opponent .OleftSide .Opendulum {
+  grid-column: 2;
+  grid-row: 2;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOP4.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Opponent .OleftSide .Öbanished {
+  grid-column: 1;
+  grid-row: 3;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOBN.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Opponent .Ocenter {
+  display: grid;
+  grid-column: 2;
+  grid-template-rows: 1fr 1fr;
+}
+.Opponent .Ocenter .Omain1 {
+  display: grid;
+  grid-column: 1;
+  grid-row: 2;
+  grid-template-columns: repeat(5, 1fr);
+  aspect-ratio: 4;
+  gap: 1%;
+}
+.Opponent .Ocenter .Omain1 .Omains1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOM1.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Opponent .Ocenter .Omain2 {
+  display: grid;
+  grid-column: 1;
+  grid-row: 1;
+  grid-template-columns: repeat(5, 1fr);
+  aspect-ratio: 4;
+  gap: 1%;
+}
+.Opponent .Ocenter .Omain2 .Omains2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOM2.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Opponent .OrightSide {
+  display: grid;
+  grid-column: 3;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  aspect-ratio: 1/2;
+}
+.Opponent .OrightSide .Oextra {
+  grid-column: 1;
+  grid-row: 1;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOET.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Opponent .OrightSide .Opendulum2 {
+  grid-column: 1;
+  grid-row: 2;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOP3.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Opponent .OrightSide .Ofield {
+  grid-column: 1;
+  grid-row: 3;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOFL.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.Self {
+  display: grid;
+  grid-template-columns: 20% 50% 20%;
+  justify-content: center;
+  align-items: center;
+  gap: 1%;
+  margin: 5%;
+}
+.Self .SleftSide {
+  display: grid;
+  grid-column: 1;
+  grid-row: 1;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  aspect-ratio: 1/2;
+}
+.Self .SleftSide .Sextra {
+  grid-column: 2;
+  grid-row: 3;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOET.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Self .SleftSide .Spendulum2 {
+  grid-column: 2;
+  grid-row: 2;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOP1.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Self .SleftSide .Sfield {
+  grid-column: 2;
+  grid-row: 1;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOFL.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Self .SrightSide {
+  display: grid;
+  grid-column: 3;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  aspect-ratio: 1/2;
+}
+.Self .SrightSide .Sdeck {
+  grid-column: 1;
+  grid-row: 3;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGODK.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Self .SrightSide .Sgraveyard {
+  grid-column: 1;
+  grid-row: 1;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOGY.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Self .SrightSide .Spendulum {
+  grid-column: 1;
+  grid-row: 2;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOP2.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Self .SrightSide .Sbanished {
+  grid-column: 2;
+  grid-row: 1;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOBN.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Self .Scenter {
+  display: grid;
+  grid-column: 2;
+  grid-row: 1;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 1fr 1fr;
+}
+.Self .Scenter .Smain1 {
+  display: grid;
+  grid-column: 1;
+  grid-row: 1;
+  grid-template-columns: repeat(5, 1fr);
+  aspect-ratio: 4;
+  gap: 1%;
+}
+.Self .Scenter .Smain1 .Smains1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOM1.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Self .Scenter .Smain2 {
+  display: grid;
+  grid-column: 1;
+  grid-row: 2;
+  grid-template-columns: repeat(5, 1fr);
+  aspect-ratio: 4;
+  gap: 1%;
+}
+.Self .Scenter .Smain2 .Smains2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-color: gray;
+  border-width: medium;
+  background-image: url("public/img/YGOM2.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card {
+  display: flex;
+  width: 80%;
+  max-height: 12vh;
+  flex-direction: column;
+  background-color: rgba(255, 187, 0, 0.6784313725);
+  background-size: cover;
+  border-style: solid;
+  border-color: gray;
+  border-width: light;
+}
+.card .nameAndTag {
+  display: inherit;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1%;
+  font-size: 3%;
+  background-color: rgba(255, 187, 0, 0.5803921569);
+  border-style: solid;
+  border-color: gray;
+  border-width: light;
+}
+.card .nameAndTag .tag {
+  color: purple;
+}
+.card .stars {
+  display: inherit;
+  justify-content: flex-end;
+  color: #ff4000;
+  font-size: 3%;
+  overflow: hidden;
+}
+.card .image {
+  display: inherit;
+  justify-content: center;
+  align-items: center;
+}
+.card .image .img {
+  width: 70%;
+  max-height: 5vh;
+  border-style: solid;
+  border-color: gray;
+  border-width: light;
+  overflow: hidden;
+}
+.card .code {
+  display: inherit;
+  justify-content: flex-end;
+  font-size: 2%;
+  overflow: hidden;
+}
+.card .description {
+  display: inherit;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(224, 204, 151, 0.6784313725);
+  border-style: solid;
+  border-color: gray;
+  border-width: light;
+  font-size: 2%;
+}
+.card .description .descriptionAndText {
+  align-items: flex-start;
+  font-size: 2%;
+  overflow: hidden;
+}
+.card .description .descriptionAndText .descriptionAndTextParragraph {
+  flex-wrap: wrap;
+  font-size: 1%;
+  text-overflow: hidden;
+}
+.card .description .descriptionStats {
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  border-top: solid;
+  font-size: 2%;
+  overflow: hidden;
+}
+.card .editionAndCopywrite {
+  display: inherit;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1%;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    padding: 4%;
+  }
+  .logo {
+    height: 150%;
+  }
+  .link {
+    font-size: 100%;
+  }
+  footer {
+    padding: 3%;
+  }
+  .Self {
+    grid-template-columns: 1% 88% 1%;
+  }
+  .SleftSide {
+    visibility: hidden;
+  }
+  .SrightSide {
+    visibility: hidden;
+  }
+  .Opponent {
+    grid-template-columns: 1% 88% 1%;
+  }
+  .OleftSide {
+    visibility: hidden;
+  }
+  .OrightSide {
+    visibility: hidden;
+  }
+  .card {
+    max-height: 17vh;
+  }
+  .card .image .img {
+    max-height: 10vh;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
