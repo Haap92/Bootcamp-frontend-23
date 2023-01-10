@@ -1,0 +1,424 @@
+@bgcolor:#94526E;
+@cardBgColor: #ffbb0094;
+@tag: purple;
+@stars: #ff4000;
+@heightDesktop: 20%;
+body {
+    background-color: @bgcolor;   
+}
+.center{
+    justify-content: center;
+    align-items: center;
+}
+.boardSpecs{
+    grid-template-columns: 20% 50% 20%;
+    .center;
+    gap: 1%;
+    margin: 5%;
+}
+.mainDistribution{
+    grid-template-columns: repeat(5, 1fr);
+    aspect-ratio: 4;
+    gap: 1%;
+}
+.rows3Desktop{
+    grid-template-rows: 1fr 1fr 1fr;
+    aspect-ratio: 1/2;
+}
+.rows2Desktop{
+    grid-template-rows: 1fr 1fr;
+}
+.bgImages{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.gridBorder{
+    border-style: solid;
+    border-color: gray;
+    border-width: medium;
+}
+.cardBorder{
+    border-style: solid;
+    border-color: gray;
+    border-width: light;
+}
+header{
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    grid-template-rows: 1fr;
+    
+    .center;
+    background-image: url("public/img/texture.png");
+    .bgImages;
+    padding: 1%;
+    .logo{
+        grid-column: 1;
+        align-items: flex-start;
+        height: 100%;
+        max-height: 20vh;
+    }
+    .menu{
+        grid-column: 2;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+    }
+        .link{
+            text-decoration: none;
+            font-size: 150%;
+            font-weight: bold;
+            color: white;
+            margin-left: 1%;
+            &:hover{
+                color: #F1E1B3;
+        }
+    }
+}
+
+footer{
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: 1fr;
+    align-items: center;
+    background-image: url("public/img/texture.png");
+    .bgImages;
+    padding: 2%;
+    .logo{
+        grid-column: 2;
+        align-items: center;
+        height: 100%;
+        max-height: 8vh;
+    }
+    .legal{
+        text-decoration: none;
+        font-size: 120%;
+        color: white;   
+    }
+}
+
+.Opponent {
+  display: grid;
+  .boardSpecs;
+  .OleftSide{
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    grid-template-columns: repeat(2, 1fr);
+    .rows3Desktop;
+    .Odeck { 
+        grid-column: 2;
+        grid-row: 1;
+        .gridBorder;
+        background-image: url("public/img/YGODK.webp");
+        .bgImages;
+        }
+        .Ograveyard {
+        grid-column: 2;
+        grid-row: 3;
+        .gridBorder;
+        background-image: url("public/img/YGOGY.webp");
+        .bgImages;
+        }
+        .Opendulum {
+        grid-column: 2;
+        grid-row: 2;
+        .gridBorder;
+        background-image: url("public/img/YGOP4.webp");
+        .bgImages;
+        }
+        .Öbanished {
+        grid-column: 1;
+        grid-row: 3;
+        .gridBorder;
+        background-image: url("public/img/YGOBN.webp");
+        .bgImages;
+        }
+    }   
+    .Ocenter{
+    display: grid;
+    grid-column: 2;
+    .rows2Desktop;
+        .Omain1 {
+            display: grid;
+            grid-column: 1;
+            grid-row: 2;
+            .mainDistribution;
+            .Omains1 {
+                display: flex;
+                .center;
+                .gridBorder;
+                background-image: url("public/img/YGOM1.webp");
+                .bgImages;
+            }       
+        }
+        .Omain2 {
+        display: grid;
+        grid-column: 1;
+        grid-row: 1;
+        .mainDistribution;
+            .Omains2 {
+                display: flex;
+                .center;
+                .gridBorder;
+                background-image: url("public/img/YGOM2.webp");
+                .bgImages;
+            }
+        }           
+    }
+    .OrightSide{
+    display: grid;
+    grid-column: 3;
+    grid-template-columns: repeat(2, 1fr);
+    .rows3Desktop;
+        .Oextra {
+            grid-column: 1;
+            grid-row: 1;
+            .gridBorder;
+            background-image: url("public/img/YGOET.webp");
+            .bgImages;
+        }
+        .Opendulum2 {
+            grid-column: 1;
+            grid-row: 2;
+            .gridBorder;
+            background-image: url("public/img/YGOP3.webp");
+            .bgImages;
+        }
+        .Ofield {
+            grid-column: 1;
+            grid-row: 3;
+            .gridBorder;
+            background-image: url("public/img/YGOFL.webp");
+            .bgImages;
+        }
+    }
+}
+
+
+.Self {
+    display: grid;
+    .boardSpecs;
+    .SleftSide{
+        display: grid;
+        grid-column: 1;
+        grid-row: 1;
+        grid-template-columns: repeat(2, 1fr);
+        .rows3Desktop;
+        .Sextra {
+            grid-column: 2;
+            grid-row: 3;
+            .gridBorder;
+            background-image: url("public/img/YGOET.webp");
+            .bgImages;
+            }
+            .Spendulum2 {
+            grid-column: 2;
+            grid-row: 2;
+            .gridBorder;
+            background-image: url("public/img/YGOP1.webp");
+            .bgImages;
+            }
+            .Sfield {
+            grid-column: 2;
+            grid-row: 1;
+            .gridBorder;
+            background-image: url("public/img/YGOFL.webp");
+            .bgImages;
+            }
+        }
+        
+    .SrightSide{
+        display: grid;
+        grid-column: 3;
+        grid-template-columns: repeat(2, 1fr);
+        .rows3Desktop;
+        .Sdeck {
+            grid-column: 1;
+            grid-row: 3;
+            .gridBorder;
+            background-image: url("public/img/YGODK.webp");
+            .bgImages;
+        }
+        .Sgraveyard {
+            grid-column: 1;
+            grid-row: 1;
+            .gridBorder;
+            background-image: url("public/img/YGOGY.webp");
+            .bgImages;
+        }
+        .Spendulum {
+            grid-column: 1;
+            grid-row: 2;
+            .gridBorder;
+            background-image: url("public/img/YGOP2.webp");
+            .bgImages;
+        }
+        .Sbanished {
+            grid-column: 2;
+            grid-row: 1;
+            .gridBorder;
+            background-image: url("public/img/YGOBN.webp");
+            .bgImages;
+        }
+    }     
+    .Scenter{
+        display: grid;
+        grid-column: 2;
+        grid-row: 1;
+        grid-template-columns: repeat(1, 1fr);
+        .rows2Desktop;
+        .Smain1 {
+            display: grid;
+            grid-column: 1;
+            grid-row: 1;
+            .mainDistribution;
+            .Smains1 {
+                display: flex;
+                .center;
+                .gridBorder;
+                background-image: url("public/img/YGOM1.webp");
+                .bgImages;
+            }
+        }
+            .Smain2 {
+            display: grid;
+            grid-column: 1;
+            grid-row: 2;
+            .mainDistribution;
+            .Smains2 {
+                display: flex;
+                .center;
+                .gridBorder;
+                background-image: url("public/img/YGOM2.webp");
+                .bgImages;
+            }
+        
+        }
+    }
+}
+
+    
+        
+    .card{
+        display: flex;
+        width: 100%;
+        max-height: 12vh;
+        flex-direction: column;
+        background-color: #ffbb00ad; 
+        background-size: cover;
+        .cardBorder;
+        .nameAndTag{
+            display: inherit;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 1%;
+            font-size: 3%;
+            background-color: @cardBgColor; 
+            .cardBorder;           
+            .tag{
+                color: @tag;
+            }
+        }
+        .stars{
+            display: inherit;
+            justify-content: flex-end;
+            color: @stars;
+            font-size: 3%;
+            overflow:hidden;  
+        }
+        .image{
+            display: inherit;
+            justify-content: center;
+            align-items: center;
+            .img{
+                width: 70%;
+                max-height: 5vh;
+                .cardBorder;
+                overflow: hidden;
+            }
+        }
+        .code{
+            display: inherit;
+            justify-content: flex-end;
+            font-size: 2%;
+            overflow:hidden;  
+        }
+        .description{
+            display: inherit;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #e0cc97ad; 
+            .cardBorder;
+            font-size: 2%;
+            .descriptionAndText{
+                align-items: flex-start;
+                font-size: 2%;
+                overflow:hidden;
+                .descriptionAndTextParragraph{
+                    flex-wrap: wrap;
+                    font-size: 1%;
+                    text-overflow:hidden;  
+                }  
+            }    
+            .descriptionStats{
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: flex-end;
+                border-top: solid;
+                font-size: 2%;
+                overflow:hidden;  
+            }
+        }    
+        .editionAndCopywrite{
+            display: inherit;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 1%;
+            overflow:hidden;  
+        }
+    }
+        
+            
+        
+
+@media screen and (max-width: 600px) {
+    header{
+        padding: 4%;
+    }
+        .logo{
+            height: 150%;
+        }
+            .link{
+                font-size: 100%;
+            }   
+    
+    footer{
+        padding: 3%;
+    }
+    .Self{
+        grid-template-columns: 1% 88% 1%;
+    }
+    .SleftSide{
+        visibility: hidden;
+    }
+    .SrightSide{
+        visibility: hidden;
+    }
+    .Opponent{
+        grid-template-columns: 1% 88% 1%;
+    }
+    .OleftSide{
+        visibility: hidden;
+    }
+    .OrightSide{
+        visibility: hidden;
+    }
+    .card{
+        max-height: 24vh;
+        .image{
+            .img{
+                max-height: 10vh;
+            }
+        }
+    }
+}
