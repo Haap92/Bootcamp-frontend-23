@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Add Product Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="textHelp.js"></script>
 </head>
 <body>
     <div class="container">
@@ -14,11 +16,11 @@
             <form>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Product Name</label>
-                  <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Product name...">
+                  <input type="name" class="form-control" id="exampleFormControlInput1" aria-describedby="productNameHelpBlock" placeholder="Product name..." onclick="productNameHelp()" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlSelect1">Product Brand</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
+                  <select class="form-control" id="exampleFormControlSelect1" aria-describedby="productBrandHelpBlock" onclick="productBrandHelp()" required>
                     <option>Nike</option>
                     <option>Adidas</option>
                     <option>Rebook</option>
@@ -28,51 +30,49 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleFormCheckbox">Available Colors</label>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                  <div class="form-check" aria-describedby="productColorHelpBlock" >
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" onclick="productColorHelp()">
                     <label class="form-check-label" for="defaultCheck1">
                       Blue
                     </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    </div>
+                <div class="form-check" aria-describedby="productColorHelpBlock">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" onclick="productColorHelp()">
+                    <label class="form-check-label" for="defaultCheck2">
                       White
                     </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                </div>
+                <div class="form-check" aria-describedby="productColorHelpBlock">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3" onclick="productColorHelp()">
+                    <label class="form-check-label" for="defaultCheck3">
                       Black
                     </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-                    <label class="form-check-label" for="defaultCheck2">
+                </div>
+                <div class="form-check" aria-describedby="productColorHelpBlock">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck4" onclick="productColorHelp()" disabled>
+                    <label class="form-check-label" for="defaultCheck4">
                       Red
                     </label>
-                  </div>
+                </div>
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlTextarea1">Product Description</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Brief description..." aria-describedby="productDescriptionHelpBlock" onclick="productDescriptionHelp()" required></textarea>
                 </div>
+                <label>Product Image</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile" aria-describedby="productImageHelpBlock" onclick="productImageHelp()">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                  <br>
+                  <br>
+                <button class="btn btn-primary" type="submit">Upload</button>
               </form>
           </div>
           <div class="col">
             Help Text
-            <small id="exampleFormControlInput1" class="form-text text-muted">
-                Designate the name of the product that you want to upload.
-            </small>
-            <small id="exampleFormControlSelect1" class="form-text text-muted">
-                Select the Brand of the product that you want to upload.
-            </small>
-            <small id="exampleFormCheckbox" class="form-text text-muted">
-                Select the available colors for the product that you want to upload.
-            </small>
-            <small id="exampleFormControlTextarea1" class="form-text text-muted">
-                Provide a brief description of the product that you want to upload.
-            </small>
+            <br>
+            <small id="helpText"></small>
           </div>
         </div>
       </div>
