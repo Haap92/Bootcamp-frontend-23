@@ -1,12 +1,12 @@
-type userRol = 'Admin' | 'User'
+type UserRol = 'Admin' | 'User'
 
-type trainer = {
+type Trainer = {
     name: string
     age: number
-    rol: userRol
+    rol: UserRol
 }
 
-type pokemon = {
+type Pokemon = {
     id: number
     name: string
     height: number

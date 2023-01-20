@@ -2,7 +2,7 @@ let PI: number;
 let age: number;
 let PersonName: string;
 let maybe: string | number;
-let rol: userRol;
+let rol: UserRol;
 
 rol = 'User';
 maybe = 25;
@@ -12,13 +12,13 @@ age = 24
 maybe = 'something else';
 rol = 'Admin'
 
-const person: trainer = {
+const person: Trainer = {
     name: PersonName,
     age: age,
     rol: rol // can be Admin or User
 }
 
-const pikachu: pokemon = {
+const pikachu: Pokemon = {
     id: 25,
     name: 'pikachu',
     height: 4,
