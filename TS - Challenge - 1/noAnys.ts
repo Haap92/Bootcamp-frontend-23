@@ -1,3 +1,5 @@
+import { Trainer, Pokemon, UserRol } from "./types";
+
 let PI: number;
 let age: number;
 let PersonName: string;
@@ -66,3 +68,4 @@ const pikachu: Pokemon = {
 }
 
 console.log(person);
+console.log(pikachu);
