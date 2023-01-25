@@ -3,14 +3,15 @@ function checkPowerPoint(target: Object, propertyKey: String, descriptor: any){
     console.log('Method:', propertyKey);
     console.log('Property Descriptor', descriptor);
     
-   descriptor.value = function () {
+    const method = descriptor.value
+    descriptor.value = function (move: any) {
     if(this.ppAvailable == 0){
         console.log(`No enough PP to use ${move?.name}!`);
+        return;
     }
-
+    method.apply(this, [move])
   }
-  return descriptor
-    
+  return descriptor   
 }
 class Pokemon {
     name: string;
