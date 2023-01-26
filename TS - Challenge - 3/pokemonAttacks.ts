@@ -1,3 +1,5 @@
+import { Pokemon } from './types';
+
 function checkPowerPoint(target: Object, propertyKey: String, descriptor: any){
     console.log('Class:', target.constructor.prototype);
     console.log('Method:', propertyKey);
@@ -15,7 +17,7 @@ function checkPowerPoint(target: Object, propertyKey: String, descriptor: any){
 
 }
 
-class Pokemon {
+class PokemonAttacks implements Pokemon {
     id: number;
     name: string;
     ppAvailable = 1;
@@ -33,6 +35,6 @@ class Pokemon {
   }
     
   const move = {name: 'thunderbolt', power: 90};
-  const pikachu = new Pokemon(25, 'pikachu', 1);
+  const pikachu = new PokemonAttacks(25, 'pikachu', 1);
   pikachu.fight(move);
   pikachu.fight(move);
