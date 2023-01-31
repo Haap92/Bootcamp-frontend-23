@@ -1,5 +1,5 @@
-function checkPowerPoint(target: Object, propertyKey: String, descriptor: any){
-    console.log('Class:', target.constructor.prototype);
+function checkPowerPoint(target: any, propertyKey: String, descriptor: any){
+    console.log('Class:', target);
     console.log('Method:', propertyKey);
     console.log('Property Descriptor', descriptor);
     
