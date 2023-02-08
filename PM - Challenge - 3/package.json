@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "webpack --config webpack.development.config",
-    "build": "webpack --config webpack.production.config",
-    "dev": "webpack --config webpack.common.config",
-    "start": "webpack-dev-server"
+    "dist": "webpack --config webpack.config.development",
+    "build": "webpack --config webpack.config.production",
+    "dev": "webpack-dev-server --config webpack.config.development",
+    "prod": "webpack-dev-server --config webpack.config.production"
   },
   "keywords": [],
   "author": "",
