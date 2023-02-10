@@ -1,27 +1,20 @@
 # NgPokedex
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
+NgPokedex is an angular projects that works as an enciclopedia for creatures called pokemons from the game franchise Pokémon.
 
-## Development server
+## How to start the project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. To install all the dependencies run `npm install`
+2. If you dont have or know whats npm, navigate to the following link: `https://phoenixnap.com/kb/install-node-js-npm-on-windows` and follow the instructions.
+3. If you already have npm run `npm start` to start the project.
+4. Navigate to `http://localhost:4200/` to start using the application.
 
-## Code scaffolding
+## How to make a Build
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Run `ng build` to build the project. 
+2. The build artifacts will be stored in the `dist/` directory.
 
-## Build
+## How to run the unit tests
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Run `ng test` to execute the unit tests.
+2. Results will be showed in the terminal.
