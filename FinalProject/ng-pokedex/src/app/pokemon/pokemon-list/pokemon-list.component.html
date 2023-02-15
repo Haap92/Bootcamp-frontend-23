@@ -1,0 +1,23 @@
+<div class="header" [ngClass]="{ 'fixed': scrolled }">
+  <p>Pokémon List</p>
+  <div class="search-container">
+    <app-search-bar
+      class="search-bar"
+      [search]="search"
+      [placeholder]="'Search Pokemons'"
+      (searchChange)="onSearchChange($event)"
+    ></app-search-bar>
+  </div>
+</div>
+<ul class="pokemon-list">
+  <li
+    *ngFor="let pokemon of pokemons; let i = index"
+    [ngClass]="{ odd: i % 2 === 0, even: i % 2 !== 0 }"
+  >
+    <span class="index-number"> {{ pokemon.id }} </span>
+    <span class="pokemon-name">
+      {{ pokemon.name[0].toUpperCase() + pokemon.name.slice(1) }}
+    </span>
+    <img Class="pokemon-sprite" [src]="pokemon.sprite" />
+  </li>
+</ul>

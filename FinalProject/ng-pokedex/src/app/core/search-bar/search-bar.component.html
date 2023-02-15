@@ -1,0 +1,12 @@
+<div>
+  <input
+    type="text"
+    class="search-input"
+    [placeholder]="placeholder || 'What are you looking for?'"
+    [ngModel]="search"
+    (ngModelChange)="searchChange.emit($event)"
+  />
+</div>
+
+
+
