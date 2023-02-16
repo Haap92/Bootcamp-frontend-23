@@ -15,7 +15,12 @@ export class PokemonService {
   }
 
   getPokemon(id: string) {
-    const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${id}`;
-    return this.http.get(pokemonUrl);
+    const pokemon = `https://pokeapi.co/api/v2/pokemon/${id}`;
+    return this.http.get(pokemon);
+  }
+
+  getPokemonByGeneration(generation: string) {
+    const pokemonByGeneration = `https://pokeapi.co/api/v2/generation/${generation}`;
+    return this.http.get(pokemonByGeneration);
   }
 }
