@@ -1,14 +1,20 @@
 import { Component, HostListener } from '@angular/core';
 import { PokemonService } from '../../pokemon.service';
-import { Pokemon, generation, pokemonTypeColors, pokemonBackgroundColors } from '../../types';
+import {
+  Pokemon,
+  generation,
+  pokemonTypeColors,
+  pokemonBackgroundColors,
+} from '../../types';
 
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
-  styleUrls: ['./pokemon-list.component.scss']
+  styleUrls: ['./pokemon-list.component.scss'],
 })
 export class PokemonListComponent {
   allPokemons: Pokemon[] = [];
+  generationPokemons: Pokemon[] = [];
   pokemons: Pokemon[] = [];
   pokemonList: Pokemon[] = [];
   search: string = '';
@@ -16,36 +22,40 @@ export class PokemonListComponent {
   displayedPokemons: number = 35;
   pokemonLoadIncrement: number = 5;
   sortOrder: boolean = false;
+  selectedGeneration: string = '0';
+  generation = generation;
 
- 
-  constructor(private pokemonService: PokemonService) {
-
-  }
+  constructor(private pokemonService: PokemonService) {}
 
   ngOnInit() {
-    this.pokemonService.getPokemonData(1008).subscribe((allPokemonData: any) => {
-      this.allPokemons = allPokemonData.results;
-      
-      this.allPokemons.forEach((pokemon) => {
-        const pokemonId = pokemon.url.split('/')[6];
-        this.pokemonService.getPokemon(pokemonId).subscribe((pokemonInfo: any) => {
-          pokemon.id  = pokemonId
-          pokemon.sprite = pokemonInfo.sprites.front_default;
-          pokemon.image = pokemonInfo.sprites.other["official-artwork"].front_default;
-          pokemon.firstType = pokemonInfo.types[0].type.name
-          pokemon.color = pokemonInfo.types[0].type.name
-        });
-      });
+    this.pokemonService
+      .getPokemonData(1008)
+      .subscribe((allPokemonData: any) => {
+        this.allPokemons = allPokemonData.results;
 
-      this.pokemonList = this.allPokemons;
-      this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
-    });
+        this.allPokemons.forEach((pokemon) => {
+          const pokemonId = pokemon.url.split('/')[6];
+          this.pokemonService
+            .getPokemon(pokemonId)
+            .subscribe((pokemonInfo: any) => {
+              pokemon.id = pokemonId;
+              pokemon.sprite = pokemonInfo.sprites.front_default;
+              pokemon.image =
+                pokemonInfo.sprites.other['official-artwork'].front_default;
+              pokemon.firstType = pokemonInfo.types[0].type.name;
+              pokemon.color = pokemonInfo.types[0].type.name;
+            });
+        });
+
+        this.pokemonList = this.allPokemons;
+        this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
+      });
     window.addEventListener('scroll', this.scroll, true);
   }
 
   scroll = (): void => {
     this.scrolled = window.scrollY > 0;
-  }
+  };
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
@@ -69,7 +79,10 @@ export class PokemonListComponent {
 
   toggleSortOrder() {
     this.sortOrder = !this.sortOrder;
-    this.pokemons = this.orderPokemonsByName(this.pokemonList).slice(0, this.displayedPokemons);
+    this.pokemons = this.orderPokemonsByName(this.pokemonList).slice(
+      0,
+      this.displayedPokemons
+    );
   }
 
   getColorForType(type: string): string {
@@ -90,5 +103,51 @@ export class PokemonListComponent {
           pokemon.name.toLowerCase().includes(search.toLowerCase())
         )
       : this.pokemonList.slice(0, this.displayedPokemons);
-  }  
+  }
+
+  onSelectChange(generation: string) {
+    this.selectedGeneration = generation;
+    if (generation !== '0') {
+      this.pokemonService
+        .getPokemonByGeneration(generation)
+        .subscribe((pokemonData: any) => {
+          this.generationPokemons = pokemonData.pokemon_species.map((pokemon: any) => {
+            return {
+              id: pokemon.url.split('/')[6],
+              name: pokemon.name,
+              sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                pokemon.url.split('/')[6]
+              }.png`,
+              image: '',
+              firstType: '',
+              color: '',
+            };
+          });
+
+          this.generationPokemons.forEach((pokemon) => {
+            this.pokemonService
+              .getPokemon(pokemon.id)
+              .subscribe((pokemonInfo: any) => {
+                pokemon.sprite = pokemonInfo.sprites.front_default;
+                pokemon.image =
+                  pokemonInfo.sprites.other['official-artwork'].front_default;
+                pokemon.firstType = pokemonInfo.types[0].type.name;
+                pokemon.color = pokemonInfo.types[0].type.name;
+              });
+          });
+
+          this.pokemonList = this.generationPokemons;
+          this.pokemonList.sort((a, b) => {
+            return parseInt(a.id) - parseInt(b.id);
+          });
+          this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
+          window.scrollTo(0, 0)
+        });
+    }else {
+      this.pokemonList = this.allPokemons;
+      this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
+      window.scrollTo(0, 0)
+    }
+  }
 }
+

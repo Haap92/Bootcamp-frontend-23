@@ -10,7 +10,7 @@ export type Pokemon = {
 }
 
 
-export const generation: Record<string, string> = {
+export const region: Record<string, string> = {
     Kanto: '1',
     Johto: '2',
     Hoenn: '3',
@@ -21,6 +21,20 @@ export const generation: Record<string, string> = {
     Galar: '8',
     Paldea: '9'
 }
+
+export const generation = [
+  { name: 'All', value: '0' },
+  { name: 'Generation 1', value: '1' },
+  { name: 'Generation 2', value: '2' },
+  { name: 'Generation 3', value: '3' },
+  { name: 'Generation 4', value: '4' },
+  { name: 'Generation 5', value: '5' },
+  { name: 'Generation 6', value: '6' },
+  { name: 'Generation 7', value: '7' },
+  { name: 'Generation 8', value: '8' },
+  { name: 'Generation 9', value: '9' }
+]
+
 
 export const pokemonTypeColors: Record<string, string> = {
     water: '#4A90DA',

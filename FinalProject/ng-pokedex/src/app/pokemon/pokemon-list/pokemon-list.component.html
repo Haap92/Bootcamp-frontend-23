@@ -1,24 +1,22 @@
 <div class="header" [ngClass]="{ 'fixed': scrolled }">
-  <p>Pokémon List</p>
+  <p>POKEDEX</p>    
+
   <div class="search-container">
+    <div class="sort" (click)="toggleSortOrder()">Sort Order</div>
     <app-search-bar
       class="search-bar"
       [search]="search"
       [placeholder]="'Search Pokemons'"
       (searchChange)="onSearchChange($event)"
     ></app-search-bar>
+    <app-select
+      label="Generation"
+      [options]="generation"
+      [selectedOption]="selectedGeneration"
+      (selectChange)="onSelectChange($event)"
+    ></app-select>
   </div>
-  <button (click)="toggleSortOrder()">Sort Order</button>
 </div>
-<ul class="pokemon-list">
-  <li
-    *ngFor="let pokemon of pokemons; let i = index"
-    [ngStyle]="{'background-color': getColorForBackground(pokemon.color)}"
-  >
-    <span class="index-number"> {{ pokemon.id }} </span>
-    <span class="pokemon-name">
-      {{ pokemon.name[0].toUpperCase() + pokemon.name.slice(1) }}
-    </span>
-    <img Class="pokemon-image" [src]="pokemon.image" />
-  </li>
-</ul>
+<div class="pokemon-list">
+    <app-pokemon-card *ngFor="let pokemon of pokemons; let i = index" [pokemon]="pokemon"></app-pokemon-card>
+</div>

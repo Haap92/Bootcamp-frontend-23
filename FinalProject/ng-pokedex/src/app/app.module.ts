@@ -7,12 +7,16 @@ import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.compon
 import { PokemonService } from './pokemon.service';
 import { SearchBarComponent } from './core/search-bar/search-bar.component';
 import { FormsModule } from '@angular/forms';
+import { PokemonCardComponent } from './pokemon/pokemon-card/pokemon-card.component';
+import { SelectComponent } from './core/select/select.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonListComponent,
-    SearchBarComponent
+    PokemonCardComponent,
+    SearchBarComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,
