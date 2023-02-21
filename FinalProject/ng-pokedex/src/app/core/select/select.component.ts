@@ -6,8 +6,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./select.component.scss'],
 })
 export class SelectComponent {
-  @Input() label!: string;
-  @Input() options!: { name: string; value: string }[];
-  @Input() selectedOption!: string;
-  @Output() selectChange = new EventEmitter<string>();
+  @Input() 
+  label!: string;
+
+  @Input() 
+  options!: { name: string; value: string }[];
+
+  @Input() 
+  selectedOption!: string;
+
+  @Output() 
+  selectChange = new EventEmitter<string>();
 }

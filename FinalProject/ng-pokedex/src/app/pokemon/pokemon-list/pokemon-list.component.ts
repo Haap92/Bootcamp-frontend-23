@@ -19,8 +19,8 @@ export class PokemonListComponent {
   pokemonList: Pokemon[] = [];
   search: string = '';
   scrolled: boolean = false;
-  displayedPokemons: number = 35;
-  pokemonLoadIncrement: number = 5;
+  displayedPokemons: number = 18;
+  pokemonLoadIncrement: number = 9;
   sortOrder: boolean = false;
   selectedGeneration: string = '0';
   generation = generation;
@@ -41,9 +41,11 @@ export class PokemonListComponent {
               pokemon.id = pokemonId;
               pokemon.sprite = pokemonInfo.sprites.front_default;
               pokemon.image =
-                pokemonInfo.sprites.other['official-artwork'].front_default;
-              pokemon.firstType = pokemonInfo.types[0].type.name;
+              pokemonInfo.sprites.other['official-artwork'].front_default;
               pokemon.color = pokemonInfo.types[0].type.name;
+              pokemon.firstType = pokemonInfo.types[0].type.name;
+              pokemon.seccondType = pokemonInfo.types[1].type.name || undefined;
+              
             });
         });
 
@@ -119,8 +121,10 @@ export class PokemonListComponent {
                 pokemon.url.split('/')[6]
               }.png`,
               image: '',
-              firstType: '',
               color: '',
+              firstType: '',
+              seccondType: '',
+              
             };
           });
 

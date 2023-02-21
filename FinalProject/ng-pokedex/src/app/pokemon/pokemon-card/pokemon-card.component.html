@@ -1,9 +1,45 @@
-  <div class="pokemon-card" [ngStyle]="{ 'background-color': getColorForBackground(pokemon.color) }">
-      <span class="index-number">{{ pokemon.id }}</span>
+<div
+  class="pokemon-card"
+  [ngStyle]="{ 'background-color': getColorForBackground(pokemon.color) }"
+>
+  <div class="pokemon-info-container">
+    <div class="index-number">
+      #{{ pokemon.id.toString().padStart(4, "0") }}
+    </div>
+    <div class="pokemon-name-container">
       <span class="pokemon-name">{{
         pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
       }}</span>
-    <div class="pokemon-image-container">
-      <img Class="pokemon-image" [src]="pokemon.image" />
     </div>
+
+    <div class="pokemon-types">
+      <div
+        class="type1"
+        [ngStyle]="{ 'background-color': getColorForType(pokemon.firstType) }"
+      >
+        <img
+          src="assets/types-images/{{ pokemon.firstType }}.svg"
+          alt="{{ pokemon.firstType }} icon"
+          class="color-text-type"
+        />
+        {{ pokemon.firstType[0].toUpperCase() + pokemon.firstType.slice(1) }}
+      </div>
+      <div
+        class="type2"
+        *ngIf="pokemon.seccondType"
+        [ngStyle]="{ 'background-color': getColorForType(pokemon.seccondType) }"
+      >
+        <img
+          src="assets/types-images/{{ pokemon.seccondType }}.svg"
+          alt="{{ pokemon.seccondType }} icon"
+        />
+        {{
+          pokemon.seccondType[0].toUpperCase() + pokemon.seccondType.slice(1)
+        }}
+      </div>
+    </div>
+  </div>
+  <div class="pokemon-image-container">
+    <img Class="pokemon-image" [src]="pokemon.image" />
+  </div>
 </div>
