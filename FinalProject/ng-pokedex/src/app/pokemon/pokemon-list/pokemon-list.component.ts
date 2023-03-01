@@ -1,11 +1,12 @@
 import { Component, HostListener } from '@angular/core';
-import { PokemonService } from '../../pokemon.service';
+import { PokemonService } from '../pokemon.service';
+import { ActivatedRoute } from '@angular/router';
 import {
   Pokemon,
   generation,
   pokemonTypeColors,
   pokemonBackgroundColors,
-} from '../../types';
+} from '../types';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -19,14 +20,39 @@ export class PokemonListComponent {
   pokemonList: Pokemon[] = [];
   search: string = '';
   scrolled: boolean = false;
-  displayedPokemons: number = 18;
+  displayedPokemons: number = 21;
   pokemonLoadIncrement: number = 9;
   sortOrder: boolean = false;
   selectedGeneration: string = '0';
   generation = generation;
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(
+    private pokemonService: PokemonService,
+    private route: ActivatedRoute
+  ) {}
 
+  // ngOnInit() {
+  //   this.allPokemons = this.route.snapshot.data['pokemons'];
+  //   console.log(this.allPokemons);
+
+  //   this.pokemonList = this.allPokemons;
+  //   this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
+
+  //   window.addEventListener('scroll', this.scroll, true);
+  // }
+
+  // ngOnInit() {
+  //   this.route.data.subscribe((data) => {
+  //     this.allPokemons = data['pokemons'];
+  //   console.log(this.allPokemons);
+
+  //   this.pokemonList = this.allPokemons;
+  //   this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
+
+  //   window.addEventListener('scroll', this.scroll, true);
+  //   })
+  // }
+  
   ngOnInit() {
     this.pokemonService
       .getPokemonData(1008)
@@ -38,13 +64,13 @@ export class PokemonListComponent {
           this.pokemonService
             .getPokemon(pokemonId)
             .subscribe((pokemonInfo: any) => {
-              pokemon.id = pokemonId;
+              pokemon.id = pokemonInfo.id;
               pokemon.sprite = pokemonInfo.sprites.front_default;
               pokemon.image =
               pokemonInfo.sprites.other['official-artwork'].front_default;
               pokemon.color = pokemonInfo.types[0].type.name;
               pokemon.firstType = pokemonInfo.types[0].type.name;
-              pokemon.seccondType = pokemonInfo.types[1].type.name || undefined;
+              pokemon.seccondType = pokemonInfo.types[1]?.type.name || undefined;
               
             });
         });
@@ -54,6 +80,7 @@ export class PokemonListComponent {
       });
     window.addEventListener('scroll', this.scroll, true);
   }
+
 
   scroll = (): void => {
     this.scrolled = window.scrollY > 0;
@@ -99,12 +126,16 @@ export class PokemonListComponent {
 
   onSearchChange(search: string) {
     this.search = search;
-    this.displayedPokemons = 40;
-    this.pokemons = search
-      ? this.pokemonList.filter((pokemon) =>
-          pokemon.name.toLowerCase().includes(search.toLowerCase())
-        )
-      : this.pokemonList.slice(0, this.displayedPokemons);
+    if (search) {
+      this.pokemonList = this.allPokemons.filter(
+        (pokemon) =>
+          pokemon.name.toLowerCase().includes(search.toLowerCase()) ||
+          pokemon.id.toString().includes(search)
+      );
+    } else {
+      this.pokemonList = this.allPokemons;
+    }
+    this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
   }
 
   onSelectChange(generation: string) {
@@ -113,30 +144,29 @@ export class PokemonListComponent {
       this.pokemonService
         .getPokemonByGeneration(generation)
         .subscribe((pokemonData: any) => {
-          this.generationPokemons = pokemonData.pokemon_species.map((pokemon: any) => {
-            return {
-              id: pokemon.url.split('/')[6],
-              name: pokemon.name,
-              sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                pokemon.url.split('/')[6]
-              }.png`,
-              image: '',
-              color: '',
-              firstType: '',
-              seccondType: '',
-              
-            };
-          });
-
+          this.generationPokemons = pokemonData.pokemon_species.map(
+            (pokemon: any) => {
+              return {
+                id: pokemon.url.split('/')[6],
+                name: pokemon.name,
+                sprite: '',
+                image: '',
+                color: '',
+                firstType: '',
+                seccondType: '',
+              };
+            }
+          );
           this.generationPokemons.forEach((pokemon) => {
             this.pokemonService
               .getPokemon(pokemon.id)
               .subscribe((pokemonInfo: any) => {
                 pokemon.sprite = pokemonInfo.sprites.front_default;
-                pokemon.image =
-                  pokemonInfo.sprites.other['official-artwork'].front_default;
-                pokemon.firstType = pokemonInfo.types[0].type.name;
+                pokemon.image = pokemonInfo.sprites.other['official-artwork'].front_default;
                 pokemon.color = pokemonInfo.types[0].type.name;
+                pokemon.firstType = pokemonInfo.types[0].type.name;
+                pokemon.seccondType = pokemonInfo.types[1]?.type.name || undefined;
+                
               });
           });
 
@@ -145,13 +175,12 @@ export class PokemonListComponent {
             return parseInt(a.id) - parseInt(b.id);
           });
           this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
-          window.scrollTo(0, 0)
+          window.scrollTo(0, 0);
         });
-    }else {
+    } else {
       this.pokemonList = this.allPokemons;
       this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
     }
   }
 }
-

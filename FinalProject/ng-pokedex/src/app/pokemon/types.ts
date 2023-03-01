@@ -1,12 +1,28 @@
 export type Pokemon = {
-    id: string
-    name: string
-    url: string
-    sprite: string
-    image: string
-    firstType: string
-    seccondType?: string
-    color: string
+    id: string;
+    name: string;
+    url: string;
+    sprite: string;
+    image: string;
+    firstType: string;
+    seccondType?: string;
+    color: string;
+}
+
+export type PokemonDetail ={
+    id: number;
+    experience: number;
+    height: number;
+    weight: number;
+    hp: number;
+    attack: number;
+    defense: number;
+    spAttack: number;
+    spDefense: number;
+    speed: number;
+    firstAbility: string;
+    seccondAbility?: string;
+    hiddenAbility?: String;
 }
 
 
@@ -23,7 +39,7 @@ export const region: Record<string, string> = {
 }
 
 export const generation = [
-  { name: 'All', value: '0' },
+  { name: 'All Pokemons', value: '0' },
   { name: 'Generation 1', value: '1' },
   { name: 'Generation 2', value: '2' },
   { name: 'Generation 3', value: '3' },

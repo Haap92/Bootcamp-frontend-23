@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Pokemon, pokemonBackgroundColors, pokemonTypeColors, } from '../../types';
+import { Router } from '@angular/router';
+import { Pokemon, pokemonBackgroundColors, pokemonTypeColors, } from '../types';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -9,6 +10,7 @@ import { Pokemon, pokemonBackgroundColors, pokemonTypeColors, } from '../../type
 export class PokemonCardComponent {
   @Input() 
   pokemon!: Pokemon;
+  constructor(private router: Router) {}
 
   getColorForBackground(type: string): string {
     const colorForBackground = pokemonBackgroundColors[type];
@@ -18,5 +20,9 @@ export class PokemonCardComponent {
   getColorForType(type: string): string {
     const colorForBackground = pokemonTypeColors[type];
     return colorForBackground;
+  }
+
+  goToPokemonDetails() {
+    this.router.navigate([`/pokedex/${this.pokemon.id}`]);
   }
 }
