@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, map, mergeMap, Observable } from 'rxjs';
-import { Pokemon } from './types';
+import evolutionChain, { Pokemon } from './types';
 
 @Injectable()
 export class PokemonService {
@@ -24,6 +24,23 @@ export class PokemonService {
   getPokemonByGeneration(generation: string) {
     const pokemonByGeneration = `https://pokeapi.co/api/v2/generation/${generation}`;
     return this.http.get(pokemonByGeneration);
+  }
+
+  getPokemonSpecie(id: string){
+    const pokemonSpecie = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
+    return this.http.get(pokemonSpecie);
+  }
+
+  getPokemonByEvolutionChain(evolutionChainId: string) {
+    const pokemonByEvolutionChain = `https://pokeapi.co/api/v2/evolution-chain/${evolutionChainId}`;
+    return this.http.get(pokemonByEvolutionChain);
+  }
+
+  getCompletePokemonData(id: string) {
+    return forkJoin({
+      pokemon: this.getPokemon(id),
+      pokemonSpecie: this.getPokemonSpecie(id)
+    })
   }
 
   getPokemons(): Observable<Pokemon[]> {

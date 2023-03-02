@@ -12,6 +12,7 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonRoutingModule } from './pokemon-routing.module';
 import { PokemonService } from './pokemon.service';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
+import { PokemonEvolutionChainComponent } from './pokemon-evolution-chain/pokemon-evolution-chain.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
     PokemonNotFoundComponent,
     NotFoundComponent,
     PokemonDetailComponent,
+    PokemonEvolutionChainComponent,
   ],
   imports: [PokemonRoutingModule, BrowserModule, HttpClientModule, FormsModule],
   providers: [PokemonService],

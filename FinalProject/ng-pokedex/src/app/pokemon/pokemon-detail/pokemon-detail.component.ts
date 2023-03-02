@@ -5,6 +5,7 @@ import {
   Pokemon,
   pokemonBackgroundColors,
   PokemonDetail,
+  PokemonSpecie,
   pokemonTypeColors,
 } from '../types';
 
@@ -16,7 +17,9 @@ import {
 export class PokemonDetailComponent {
   pokemon!: Pokemon;
   pokemonDetail!: PokemonDetail;
+  pokemonSpecie!: PokemonSpecie;
   currentTab: string = 'description';
+  selectedLanguage: string = 'en';
 
   constructor(
     private route: ActivatedRoute,
@@ -28,7 +31,7 @@ export class PokemonDetailComponent {
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
-      this.pokemonService.getPokemon(id).subscribe((data: any) => {
+      this.pokemonService.getPokemon(id!).subscribe((data: any) => {
         this.pokemon = {
           id: data.id,
           name: data.name,
@@ -54,11 +57,19 @@ export class PokemonDetailComponent {
           seccondAbility: data.abilities[1]?.ability.name || null,
           hiddenAbility: data.abilities[2]?.ability.name || null,
         };
-        console.log(this.pokemon);
-        console.log(this.pokemonDetail);
       });
+
+      this.pokemonService.getPokemonSpecie(id!).subscribe((data: any) => {
+        this.pokemonSpecie = {
+          id: data.id,
+          pokedexEntries: data.flavor_text_entries,
+          evolutionChain: data.evolution_chain,
+          evolutionChainId: data.evolution_chain.url.split('/')[6],
+        };
+      });     
     }
   }
+  
 
   getColorForType(type: string): string {
     const colorForType = pokemonTypeColors[type];
@@ -75,7 +86,17 @@ export class PokemonDetailComponent {
   }
 
   setCurrentTab(tab: string) {
-  this.currentTab = tab;
+    this.currentTab = tab;
+  }
+
+  getPokedexEntryByLanguage(language: string): string {
+    if (this.pokemonSpecie) {
+      const entry = this.pokemonSpecie.pokedexEntries.find(
+        (entry) => entry.language.name === language
+      );
+      return entry ? entry.flavor_text : '';
+    }
+    return '';
   }
 
   async navigateToPreviousPokemon() {
