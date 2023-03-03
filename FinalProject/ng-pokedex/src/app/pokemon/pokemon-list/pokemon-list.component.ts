@@ -130,7 +130,9 @@ export class PokemonListComponent {
       this.pokemonList = this.allPokemons.filter(
         (pokemon) =>
           pokemon.name.toLowerCase().includes(search.toLowerCase()) ||
-          pokemon.id.toString().includes(search)
+          pokemon.id.toString().includes(search) ||
+          pokemon.firstType.toLowerCase().includes(search.toLowerCase()) ||
+          pokemon.seccondType?.toLowerCase().includes(search.toLowerCase())
       );
     } else {
       this.pokemonList = this.allPokemons;

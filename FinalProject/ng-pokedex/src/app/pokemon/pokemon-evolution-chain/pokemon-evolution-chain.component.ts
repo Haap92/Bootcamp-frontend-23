@@ -18,6 +18,8 @@ export class PokemonEvolutionChainComponent {
 
   ngOnInit(): void {
     this.getPokemonEvolutionChain(this.pokemonSpecie.evolutionChain.url);   
+    console.log(this.pokemonSpecie);
+    
   }
 
   getPokemonEvolutionChain(evolutionChainUrl: string): void {
@@ -41,7 +43,8 @@ export class PokemonEvolutionChainComponent {
     return colorForType;
   }
 
-  goToPokemon(id: string) {
-    this.router.navigate([`/pokedex/${id}`]);
+  async goToPokemon(id: string) {
+    await this.router.navigate([`/pokedex/${id}`]);
+    window.location.reload();
   }
 }
