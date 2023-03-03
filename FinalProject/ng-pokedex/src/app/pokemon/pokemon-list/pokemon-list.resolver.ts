@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { PokemonService } from '../pokemon.service';
 import { Pokemon } from '../types';
 
@@ -9,9 +9,8 @@ export class PokemonListResolver implements Resolve<Pokemon[]> {
   constructor(private pokemonService: PokemonService) {}
 
   resolve(): Observable<Pokemon[]> {
-    console.log('resolving...');
-    
-    return this.pokemonService.getPokemons()
+    return this.pokemonService.getPokemonData(1008).pipe(
+      map((response: any) => response.results)
+    );
   }
 }
-

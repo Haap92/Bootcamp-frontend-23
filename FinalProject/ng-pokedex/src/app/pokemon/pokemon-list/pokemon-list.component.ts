@@ -31,56 +31,28 @@ export class PokemonListComponent {
     private route: ActivatedRoute
   ) {}
 
-  // ngOnInit() {
-  //   this.allPokemons = this.route.snapshot.data['pokemons'];
-  //   console.log(this.allPokemons);
-
-  //   this.pokemonList = this.allPokemons;
-  //   this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
-
-  //   window.addEventListener('scroll', this.scroll, true);
-  // }
-
-  // ngOnInit() {
-  //   this.route.data.subscribe((data) => {
-  //     this.allPokemons = data['pokemons'];
-  //   console.log(this.allPokemons);
-
-  //   this.pokemonList = this.allPokemons;
-  //   this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
-
-  //   window.addEventListener('scroll', this.scroll, true);
-  //   })
-  // }
-  
   ngOnInit() {
-    this.pokemonService
-      .getPokemonData(1008)
-      .subscribe((allPokemonData: any) => {
-        this.allPokemons = allPokemonData.results;
+    this.allPokemons = this.route.snapshot.data['pokemons'];
+    this.allPokemons.forEach((pokemon) => {
+      const pokemonId = pokemon.url.split('/')[6];
+      this.pokemonService
+        .getPokemon(pokemonId)
+        .subscribe((pokemonInfo: any) => {
+          pokemon.id = pokemonInfo.id;
+          pokemon.sprite = pokemonInfo.sprites.front_default;
+          pokemon.image =
+            pokemonInfo.sprites.other['official-artwork'].front_default;
+          pokemon.color = pokemonInfo.types[0].type.name;
+          pokemon.firstType = pokemonInfo.types[0].type.name;
+          pokemon.seccondType = pokemonInfo.types[1]?.type.name || undefined;
 
-        this.allPokemons.forEach((pokemon) => {
-          const pokemonId = pokemon.url.split('/')[6];
-          this.pokemonService
-            .getPokemon(pokemonId)
-            .subscribe((pokemonInfo: any) => {
-              pokemon.id = pokemonInfo.id;
-              pokemon.sprite = pokemonInfo.sprites.front_default;
-              pokemon.image =
-              pokemonInfo.sprites.other['official-artwork'].front_default;
-              pokemon.color = pokemonInfo.types[0].type.name;
-              pokemon.firstType = pokemonInfo.types[0].type.name;
-              pokemon.seccondType = pokemonInfo.types[1]?.type.name || undefined;
-              
-            });
+          this.pokemonList = this.allPokemons;
+          this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
+
+          window.addEventListener('scroll', this.scroll, true);
         });
-
-        this.pokemonList = this.allPokemons;
-        this.pokemons = this.pokemonList.slice(0, this.displayedPokemons);
-      });
-    window.addEventListener('scroll', this.scroll, true);
+    });
   }
-
 
   scroll = (): void => {
     this.scrolled = window.scrollY > 0;
@@ -164,11 +136,12 @@ export class PokemonListComponent {
               .getPokemon(pokemon.id)
               .subscribe((pokemonInfo: any) => {
                 pokemon.sprite = pokemonInfo.sprites.front_default;
-                pokemon.image = pokemonInfo.sprites.other['official-artwork'].front_default;
+                pokemon.image =
+                  pokemonInfo.sprites.other['official-artwork'].front_default;
                 pokemon.color = pokemonInfo.types[0].type.name;
                 pokemon.firstType = pokemonInfo.types[0].type.name;
-                pokemon.seccondType = pokemonInfo.types[1]?.type.name || undefined;
-                
+                pokemon.seccondType =
+                  pokemonInfo.types[1]?.type.name || undefined;
               });
           });
 
