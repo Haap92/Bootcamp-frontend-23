@@ -23,12 +23,12 @@ export class PokemonEvolutionChainComponent {
   }
 
   getPokemonEvolutionChain(evolutionChainUrl: string): void {
-    const evolutionChainId = evolutionChainUrl.split('/').slice(-2)[0];
+    const evolutionChainId = evolutionChainUrl.split('/')[6];
     this.pokemonService.getPokemonByEvolutionChain(evolutionChainId).subscribe((evolutionChain: any) => {
       let currentEvolution = evolutionChain.chain;
       const evolutionChainArray = [];
       while (currentEvolution) {
-        const id = currentEvolution.species.url.split('/').slice(-2)[0];
+        const id = currentEvolution.species.url.split('/')[6];
         const name = currentEvolution.species.name;
         const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
         evolutionChainArray.push({ id, name, image });
